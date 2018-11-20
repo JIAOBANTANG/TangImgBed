@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>自用图床</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="https://jiaobantangvideo.oss-cn-beijing.aliyuncs.com/images/icon.ico">
+</head>
+
+<body>
+    <div class="m-p-g" id="hisimg">
+        <div class="m-p-g__thumbs" data-google-image-layout data-max-height="350">
+            <img v-for="v in imgs" :src="v" :data-full="v" class="m-p-g__thumbs-img" />
+        </div>
+        <div class="m-p-g__fullscreen">
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    new Vue({
+        el: "#hisimg",
+        data: {
+            imgs: ''
+        },
+        created() {
+            var his = localStorage.getItem('HistoryImg')
+            var imgs = his.split(',')
+            this.imgs = imgs
+            console.log(this.imgs)
+        }
+    })
+</script>
+<!-- <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/material-photo-gallery.min.js'></script> -->
+<script src="js/gallery.js"></script>
+<script>
+    var elem = document.querySelector('.m-p-g');
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var gallery = new MaterialPhotoGallery(elem);
+    });
+</script>
