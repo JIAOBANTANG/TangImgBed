@@ -8,7 +8,6 @@ Apis:https://www.youngxj.cn/
 -->
 <!DOCTYPE html>
 <html lang='zh-cn'>
-
 <head>
 	<meta charset='UTF-8'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
@@ -99,6 +98,8 @@ Apis:https://www.youngxj.cn/
 		var houzui = myimg.lastIndexOf('.');
 		var ext = myimg.substring(houzui, myimg.length).toUpperCase();
 		var file = $('#file').get(0).files[0];
+		
+
 		if (!file) {
 			return false;
 		}
@@ -129,6 +130,7 @@ Apis:https://www.youngxj.cn/
 		} else {
 			$('#imgLoading').attr('src', 'https://ww2.sinaimg.cn/large/005BYqpgly1fxbbemsqxaj305k05k3yg.jpg');
 			var data = new FormData($('#form1')[0]);
+			console.log(data);
 			var YoungxjApisToken = 'f07b711396f9a05bc7129c4507fb65c5';
 			switch (type) {
 				case 'sougou':
